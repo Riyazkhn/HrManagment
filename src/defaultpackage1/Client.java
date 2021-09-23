@@ -88,7 +88,7 @@ public class Client {
 					System.out.println("Enter Employeename: ");
 					String employeeName = sc.next();
 					if (isValidationsCharacter(employeeName)) {
-						System.out.println("It is valid Employee name");
+
 					} else {
 						System.out.println("It contain special character which is invalid:");
 						System.out.println("Please enter again employeename:  ");
@@ -107,7 +107,7 @@ public class Client {
 					System.out.println("Enter Employee Mobilenumber ");
 					String mobileNumber = sc.next();
 					if (isValidations(mobileNumber)) {
-						System.out.println();
+
 					} else {
 						System.out.println("Enter mobile number is invalid");
 						System.out.println("Please enter again:  ");
@@ -116,7 +116,7 @@ public class Client {
 					System.out.println("Enter Employee Email:");
 					String email = sc.next();
 					if (isValidationsEmail(email)) {
-						System.out.println("It is valid Email");
+						System.out.println();
 					} else {
 						System.out.println("Enter Email is invalid: ");
 						System.out.println("Please enter again:  ");
@@ -140,7 +140,7 @@ public class Client {
 					System.out.println("Enter EmployeeName to be updated: ");
 					String employeeName1 = sc.next();
 					if (isValidationsCharacter(employeeName1)) {
-						System.out.println("It is valid Employee name");
+
 					} else {
 						System.out.println("It contain special character which is invalid:");
 						System.out.println("Please enter again employeename:  ");
@@ -159,17 +159,18 @@ public class Client {
 					System.out.println("Enter MobileNumber to be updated: ");
 					String mobileNumber1 = sc.next();
 					if (isValidations(mobileNumber1)) {
-						System.out.println("It is valid mobile number");
+
 					} else {
 						System.out.println("*********Enter mobile number is invalid********");
 						System.out.println("Please enter again:  ");
+
 						mobileNumber1 = sc.next();
 
 					}
 					System.out.println("Enter Email to be updated");
 					String email1 = sc.next();
 					if (isValidationsEmail(email1)) {
-						System.out.println();
+
 					} else {
 						System.out.println("Enter Email is invalid: ");
 						System.out.println("Please enter again:  ");
@@ -243,21 +244,23 @@ public class Client {
 					System.out.println("List of employee for department by Id");
 					System.out.println("Enter Department id: ");
 					int employeeid4 = sc.nextInt();
-					Employee departmentRecord = employeeservice.departmentHaveEmployee(employeeid4);
-					if (departmentRecord != null) {
-						System.out.println("Employee id:  " + departmentRecord.getEmployeeId());
-						System.out.println("Employee name: " + departmentRecord.getEmployeeName());
-						System.out.println("Employee salary: " + departmentRecord.getEmployeeSalary());
-						System.out.println("Employee Age: " + departmentRecord.getEmployeeAge());
-						System.out.println(("Employee Address: " + departmentRecord.getEmployeeAddress()));
-						System.out.println("Department Id:  " + departmentRecord.getDepartmentId());
-						System.out.println("Role Id: " + departmentRecord.getRoleId());
-						System.out.println("Mobile Number: " + departmentRecord.getMobileNumber());
-						System.out.println("Email : " + departmentRecord.getEmail());
-					} else {
-						System.out.println("Employee record is not available");
+					List<Employee> employeelist = employeeservice.departmentHaveEmployee(employeeid4);
+					for (Employee departmentRecord : employeelist) {
+						if (departmentRecord != null) {
+							System.out.println("Employee id:  " + departmentRecord.getEmployeeId());
+							System.out.println("Employee name: " + departmentRecord.getEmployeeName());
+							System.out.println("Employee salary: " + departmentRecord.getEmployeeSalary());
+							System.out.println("Employee Age: " + departmentRecord.getEmployeeAge());
+							System.out.println(("Employee Address: " + departmentRecord.getEmployeeAddress()));
+							System.out.println("Department Id:  " + departmentRecord.getDepartmentId());
+							System.out.println("Role Id: " + departmentRecord.getRoleId());
+							System.out.println("Mobile Number: " + departmentRecord.getMobileNumber());
+							System.out.println("Email : " + departmentRecord.getEmail());
+							System.out.println("______________________________________________");
+						} else {
+							System.out.println("Employee record is not available");
+						}
 					}
-
 				}
 
 				System.out.println();

@@ -52,7 +52,7 @@ public class EmployeeServiceImplements implements EmployeeService {
 	}
 
 	@Override
-	public Employee departmentHaveEmployee(int id) {
+	public List<Employee> departmentHaveEmployee(int id) {
 		// TODO Auto-generated method stub
 		return employeedao.departmentHaveEmployee(id);
 	}

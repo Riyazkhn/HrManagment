@@ -15,7 +15,7 @@ public interface EmployeeService {
 	Employee searchEmployeebyId(int id);
 
 	public void departmentWiseEmployeeCount();
-	
-	Employee departmentHaveEmployee(int id);
+
+	List<Employee> departmentHaveEmployee(int id);
 
 }

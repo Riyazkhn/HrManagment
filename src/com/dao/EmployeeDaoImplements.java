@@ -234,7 +234,8 @@ public class EmployeeDaoImplements implements EmployeeDao {
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
-				System.out.println("DepartmentName:" +resultSet.getString(1) + " Count of Employee: "+ resultSet.getInt(2));
+				System.out.println(
+						"DepartmentName:" + resultSet.getString(1) + " Count of Employee: " + resultSet.getInt(2));
 
 			}
 		} catch (SQLException e) {
@@ -244,10 +245,11 @@ public class EmployeeDaoImplements implements EmployeeDao {
 	}
 
 	@Override
-	public Employee departmentHaveEmployee(int id) {
+	public List<Employee> departmentHaveEmployee(int id) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultset = null;
+		ArrayList<Employee> list = new ArrayList<>();
 		Employee employee = null;
 		try {
 
@@ -266,13 +268,11 @@ public class EmployeeDaoImplements implements EmployeeDao {
 				employee.setRoleId(resultset.getInt("RoleId"));
 				employee.setMobileNumber(resultset.getString("MobileNumber"));
 				employee.setEmail(resultset.getString("Email"));
+				list.add(employee);
 			}
-		}
-		catch(SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		finally {
+		} finally {
 			try {
 				if (resultset != null)
 					resultset.close();
@@ -294,9 +294,9 @@ public class EmployeeDaoImplements implements EmployeeDao {
 			} catch (SQLException e) {
 				// TODO: handle exception
 			}
-			
+
 		}
-		return employee;
+		return list;
 	}
 
 }
